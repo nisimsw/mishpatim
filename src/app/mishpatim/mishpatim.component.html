@@ -1,0 +1,116 @@
+<div align="center" style="width: 1860px;height: 800px;border: 0px solid black;background-color: azure">
+  <div style="width: 200px;height: 30px;border: 0px solid black">
+    חיפוש תיקים
+  </div>
+  <div style="height: 50px;width: 1850px;border: 0px solid black ">
+    <div style="width: 280px;height: 40px;border: 0px solid black;float: right">
+      <input style="height: 20px"  #TextInput2 type="text" placeholder="הקלד מספר תיק" >
+   >
+    </div>
+    <div style="width: 50px;height: 40px;border: 0px solid black;float: right">
+      <button style="height: 35px" (click)="Search(FilterSelected)">חפש</button>
+    </div>
+    <div style="width: 400px;height: 40px;border: 0px solid black;float: right">
+      <div style="width: 100px;width: 40px;float:right;margin-right: 25px ">
+        <button [ngClass]="Alternate1" style="width: 40px;height: 40px;outline: none"
+                (click)="Switch(1)">הכל
+        </button>
+      </div>
+      <div style="width: 100px;width: 40px;float:right ;margin-right: 25px ">
+        <button [ngClass]="Alternate2" style="width: 50px;height: 40px;outline: none"
+                (click)="Switch(2)">תיקים שלי
+        </button>
+      </div>
+      <div style="width: 100px;width: 40px;float:right;margin-right: 25px ">
+        <button [ngClass]="Alternate3" style="width: 50px;height: 40px;outline: none"
+                (click)="Switch(3)">תיקים פעילים
+        </button>
+      </div>
+      <div style="width: 100px;width: 40px;float:right;margin-right: 25px ">
+        <button [ngClass]="Alternate4" style="width: 50px;height: 40px;background-color: blueoutline: none"
+                (click)="Switch(4)">תיקים סגורים
+        </button>
+      </div>
+    </div>
+  </div>
+  <div style="height: 50px;width: 1850px;border: 1px solid black ">
+       <div>
+         נמצאו-{{FilterdArray.length}}-רשומות
+       </div>
+
+     <div style="float: left">
+          <button style="height: 25px" (click)="SortDate()">לפי תאריך</button>
+       </div>
+     <div style="float: left">
+       <button style="width: 80px;height: 25px" (click)="SortId()">מספר תיק</button>
+       </div>
+     <div style="float: left">מיין לפי:</div>
+     <div>
+
+       </div>
+  </div>
+  <div style="height: 700px;width: 1850px;border: 1px solid black ">
+    <div>
+      <table dir="rtl" style="border-collapse: collapse; width: 100%;">
+  <tbody *ngFor="let item of FilterdArray; let i = index">
+    <!-- First Line -->
+    <tr class="row-group" [class.alt]="i % 2 === 0" style="height: 50px;">
+      <td>מספר תיק:</td>
+      <td style="width: 120px;">
+        <span class="bold">{{ item.file_number }}</span>
+      </td>
+      <td>תאריך:</td>
+      <td style="width: 120px;">
+        <span class="bold">{{ item.date }}</span>
+      </td>
+      <td>עוסק:</td>
+      <td>
+        <span class="bold">{{ item.osek }}</span>
+      </td>
+      <td>מערך תיק:</td>
+      <td>
+        <span class="bold">{{ item.file2 }}</span>
+      </td>
+      <td>תקופת זכאות:</td>
+      <td>
+        <span class="bold">{{ item.date2 }}</span>
+      </td>
+      <td>פתיחת תיק:</td>
+      <td>
+        <span class="bold">{{ item.opening }}</span>
+      </td>
+      <td>סגירת תיק:</td>
+      <td>
+        <span class="bold">{{ item.close }}</span>
+      </td>
+    </tr>
+    <!-- Second Line -->
+    <tr class="row-group" [class.alt]="i % 2 === 0" style="height: 50px;">
+      <td>מגיש הערר:</td>
+      <td>
+        <span class="bold">{{ item.megish }}</span>
+      </td>
+      <td>בא כוח המשיבה:</td>
+      <td>
+        <span class="bold">{{ item.mechiva }}</span>
+      </td>
+      <td>יושב ראש:</td>
+      <td>
+        <span class="bold">{{ item.yor }}</span>
+      </td>
+      <td>נציג:</td>
+      <td>
+        <span class="bold">{{ item.natsig }}</span>
+      </td>
+      <td>סטטוס:</td>
+      <td>
+        <span class="bold">{{ item.status }}</span>
+      </td>
+      <!-- Empty cells to fill the row -->
+      <td colspan="4"></td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>

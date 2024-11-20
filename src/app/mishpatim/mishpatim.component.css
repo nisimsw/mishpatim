@@ -1,0 +1,25 @@
+.row-group {
+  background-color: #fff; /* Default background */
+}
+
+.row-group.alt {
+  background-color: #f0f0f0; /* Alternate background */
+}
+
+td {
+  padding: 5px;
+  text-align: right;
+  border: 1px solid #ddd;
+}
+
+.bold {
+  font-weight: bold;
+}
+.Picked {
+color: white;
+  background: blue;
+}
+.UnPicked{
+  color: blue;
+  background: white;
+}
